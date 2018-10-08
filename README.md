@@ -5,28 +5,29 @@
 三角形
 
 
-![image]()
+![image](https://github.com/29DCH/Canvas-ScratchCard/blob/master/2.png)
 
 
 圆形
 
 
-![image]()
+![image](https://github.com/29DCH/Canvas-ScratchCard/blob/master/3.png)
 
 
 矩形
 
 
-![image]()
+![image](https://github.com/29DCH/Canvas-ScratchCard/blob/master/1.png)
 
 
 组合
 
 
-![image]()
+![image](https://github.com/29DCH/Canvas-ScratchCard/blob/master/4.png)
 
 
 刮刮卡特效
 
 
-![image]()
+![image](https://github.com/29DCH/Canvas-ScratchCard/blob/master/6.png)
+![image](https://github.com/29DCH/Canvas-ScratchCard/blob/master/5.png)

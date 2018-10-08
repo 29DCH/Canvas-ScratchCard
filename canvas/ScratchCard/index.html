@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no" />
+		<title>用canvas做刮刮卡图片特效</title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			html,body{
+				height: 100%;
+				overflow: hidden;
+			}
+			#wrap{
+				height: 100%;
+				overflow: hidden;
+			}
+			#wrap > div{
+				height: 100%;
+				background: url(img/o_neo.jpg) no-repeat;
+				background-size:100% 100% ;
+			}
+			canvas{
+				position: absolute;
+				left: 0;
+				top: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="wrap">
+			<div></div>
+			<canvas></canvas>
+		</div>
+	</body>
+	<script type="text/javascript">
+		window.onload=function(){
+			var canvas =document.querySelector("canvas");
+			canvas.width = document.documentElement.clientWidth;
+			canvas.height = document.documentElement.clientHeight;
+			
+			if(canvas.getContext){
+				var ctx = canvas.getContext("2d");
+				
+				//在canvas中引入图片，需要在图片加载完成之后
+				var img = new Image();
+				img.src="img/cover.jpeg";
+				img.onload=function(){
+					draw();
+				}
+			}
+			
+			function draw(){
+				ctx.drawImage(img,0,0,canvas.width,canvas.height );
+				canvas.addEventListener("touchstart",function(ev){
+					ev = ev||event;
+					//拿到鼠标指针
+					var touchC = ev.changedTouches[0];
+					var x = touchC.clientX ;
+					var y = touchC.clientY ;
+					ctx.save();
+					ctx.beginPath();
+					ctx.globalCompositeOperation="destination-out";
+					ctx.arc(x,y ,20,0,360*Math.PI/180);
+					ctx.fill();
+					ctx.restore();
+				})
+
+				canvas.addEventListener("touchmove",function(ev){
+					ev = ev||event;
+                    //拿到鼠标指针
+					var touchC = ev.changedTouches[0];
+					var x = touchC.clientX ;
+					var y = touchC.clientY ;
+					ctx.save();
+					ctx.beginPath();
+					ctx.globalCompositeOperation="destination-out";
+					ctx.arc(x,y ,20,0,360*Math.PI/180);
+					ctx.fill();
+					ctx.restore();
+				})
+			}
+		}
+	</script>
+</html>

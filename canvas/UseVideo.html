@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			body{
+				background: gray;
+			}
+			canvas{
+				background: deepskyblue;
+				/*如何让一个元素水平垂直居中*/
+				position: absolute;
+				left: 0;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				margin: auto;
+			}
+		</style>
+	</head>
+	<body>
+		<video src="video/杨宗纬 - 这一路走来.mp4" width="0" height="0" autoplay></video>
+		<canvas width="400" height="400"></canvas>
+	</body>
+	<script type="text/javascript">
+		var canvas = document.querySelector("canvas");
+		var video = document.querySelector("video");
+		if(canvas.getContext){
+			var ctx = canvas.getContext("2d");
+			//装载视频
+			setTimeout(function(){
+				ctx.drawImage(video,0,0,canvas.width,canvas.height)
+			},100)
+			// setInterval(function(){
+			// 	ctx.drawImage(video,0,0,canvas.width,canvas.height);
+			// },100)
+		}
+	</script>
+</html>
